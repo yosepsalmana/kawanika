@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-body",
   {
     variants: {
       variant: {
@@ -15,11 +15,19 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Kawanika Premium Variants
+        gold: "bg-gold text-primary-foreground hover:bg-gold/90 shadow-gold hover:shadow-elevated transition-all duration-300",
+        "gold-outline": "border-2 border-gold text-gold bg-transparent hover:bg-gold hover:text-primary-foreground transition-all duration-300",
+        hero: "bg-gold text-primary-foreground hover:bg-gold/90 shadow-gold hover:shadow-elevated text-base px-8 py-6 rounded-full transition-all duration-300 hover:scale-105",
+        "hero-outline": "border-2 border-gold/80 text-foreground bg-transparent hover:bg-gold/10 text-base px-8 py-6 rounded-full transition-all duration-300 hover:scale-105",
+        whatsapp: "bg-[hsl(142_70%_45%)] text-[hsl(0_0%_100%)] hover:bg-[hsl(142_70%_40%)] shadow-lg hover:shadow-elevated transition-all duration-300",
+        elegant: "bg-charcoal text-ivory hover:bg-charcoal/90 rounded-full transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 rounded-full px-10 text-base",
         icon: "h-10 w-10",
       },
     },
