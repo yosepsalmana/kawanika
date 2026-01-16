@@ -11,6 +11,14 @@ import template2 from "@/assets/template-preview-2.jpg";
 import template3 from "@/assets/template-preview-3.jpg";
 import template4 from "@/assets/template-preview-4.jpg";
 
+type Category = "all" | "simple-elegant" | "modern-trendy";
+
+const categories: { id: Category; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "simple-elegant", label: "Simple Elegant" },
+  { id: "modern-trendy", label: "Modern / Trendy" },
+];
+
 const templates = [
   {
     code: "KN-01",
@@ -21,6 +29,7 @@ const templates = [
     discount: 35,
     popular: true,
     previewUrl: "https://demo.kawanika.com/rose-elegance",
+    category: "simple-elegant" as Category,
   },
   {
     code: "KN-02",
@@ -31,6 +40,7 @@ const templates = [
     discount: 30,
     popular: false,
     previewUrl: "https://demo.kawanika.com/garden-minimalis",
+    category: "simple-elegant" as Category,
   },
   {
     code: "KN-03",
@@ -41,6 +51,7 @@ const templates = [
     discount: 25,
     popular: true,
     previewUrl: "https://demo.kawanika.com/royal-burgundy",
+    category: "modern-trendy" as Category,
   },
   {
     code: "KN-04",
@@ -51,6 +62,7 @@ const templates = [
     discount: 35,
     popular: false,
     previewUrl: "https://demo.kawanika.com/rustic-charm",
+    category: "modern-trendy" as Category,
   },
 ];
 
@@ -66,6 +78,11 @@ const formatPrice = (price: number) => {
 const TemplateShowcase = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<typeof templates[0] | null>(null);
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
+
+  const filteredTemplates = activeCategory === "all" 
+    ? templates 
+    : templates.filter(t => t.category === activeCategory);
 
   const handleWhatsApp = (templateCode: string, templateName: string) => {
     const message = `Halo Kawanika, saya tertarik dengan template ${templateCode} - ${templateName}. Bisa info lebih lanjut?`;
@@ -101,9 +118,26 @@ const TemplateShowcase = () => {
             </p>
           </div>
 
+          {/* Category Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-6 py-2.5 rounded-full font-body text-sm transition-all duration-300 border ${
+                  activeCategory === cat.id
+                    ? "bg-gold text-primary-foreground border-gold shadow-soft"
+                    : "bg-transparent text-foreground/70 border-border hover:border-gold/50 hover:text-gold"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
           {/* Template Grid - Centered with flex */}
           <div className="flex flex-wrap justify-center gap-8">
-            {templates.map((template, index) => (
+            {filteredTemplates.map((template, index) => (
               <div
                 key={index}
                 className="group relative bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-[320px]"

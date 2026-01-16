@@ -21,7 +21,9 @@ const Index = () => {
       <section id="how-it-works">
         <HowItWorks />
       </section>
+      {/* Testimonials - Hidden for now, can be re-enabled by uncommenting
       <Testimonials />
+      */}
       <FinalCTA />
       <Footer />
     </div>

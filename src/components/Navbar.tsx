@@ -34,8 +34,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="font-display text-2xl md:text-3xl">
-            <span className="text-gold">Kawa</span>nika
+          <a href="/" className="flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="Kawanika" 
+              className="h-8 md:h-10 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
