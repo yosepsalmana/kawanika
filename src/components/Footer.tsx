@@ -7,9 +7,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="font-display text-3xl mb-2">
-              <span className="text-gold">Kawa</span>nika
-            </h3>
+            <img 
+              src="/logo.png" 
+              alt="Kawanika" 
+              className="h-12 w-auto object-contain mx-auto md:mx-0 mb-2"
+            />
             <p className="font-body text-ivory/70 text-sm">
               Kawan Nikah — Digital Wedding Invitation
             </p>

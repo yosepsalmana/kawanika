@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Eye } from "lucide-react";
-import floralDecoration from "@/assets/floral-decoration.png";
 
 const Hero = () => {
   const handleWhatsApp = () => {
@@ -12,17 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-hero overflow-hidden">
-      {/* Floating Decorations */}
-      <div className="absolute top-10 left-10 w-32 md:w-48 opacity-40 animate-float">
-        <img src={floralDecoration} alt="" className="w-full rotate-[-30deg]" />
-      </div>
-      <div className="absolute bottom-20 right-10 w-40 md:w-56 opacity-30 animate-float-slow">
-        <img src={floralDecoration} alt="" className="w-full rotate-[30deg] scale-x-[-1]" />
-      </div>
-      <div className="absolute top-1/4 right-1/4 w-20 opacity-20 animate-pulse-soft">
-        <img src={floralDecoration} alt="" className="w-full" />
-      </div>
+    <section className="relative min-h-screen bg-gradient-to-b from-background via-champagne/30 to-champagne overflow-hidden">
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex flex-col justify-center items-center text-center">
